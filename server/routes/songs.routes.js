@@ -5,6 +5,6 @@ module.exports = (app) => {
     app.post('/api/songs', SongController.createSong);
     app.get('/api/songs/:id', SongController.findSongById);
     app.put('/api/songs/update/:id', SongController.updateSong);
-    app.delete('/api/songs/:id', SongController.deleteSong);
+    app.delete('/api/songs/delete/:id', SongController.deleteSong);
     
 }
