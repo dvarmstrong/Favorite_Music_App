@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+
 import { Link } from "react-router-dom";
 
 const DisplayAll = (props) => {
@@ -28,6 +30,7 @@ const DisplayAll = (props) => {
 
   return (
     <div>
+      
       <h1>My Songs</h1>
       <Table striped bordered hover size="md">
         <thead>
@@ -43,11 +46,11 @@ const DisplayAll = (props) => {
           
           return (
             <tr key={index}>
-              <td><Link to={"/song/:id"}>{songList.title}</Link></td>
+              <td><Link to={"/song/" + songList._id}>{songList.title}</Link></td>
               <td>{songList.artist}</td>
               <td>{songList.album}</td>
-              <td><Link to={"/update/:id"}>Edit</Link>
-              <button onClick={() => deleteSong(songList._id)}>Delete</button></td>
+              <td><Link to={"/update/:id" + songList._id}><Button variant="info">Edit</Button></Link>
+              <button onClick={() => deleteSong(songList._id)}><Button variant="danger">Delete</Button></button></td>
           
             </tr>
           );

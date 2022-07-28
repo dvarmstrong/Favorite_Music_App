@@ -3,21 +3,24 @@ const Song = require('../models/songs.models');
 
 
 module.exports.createSong = (req, res) => {
-    Song.create(req.body)
+    const {title, artist, album, genre, year} = req.body;
+    Song.create({title, artist, album, genre, year})
     .then(song => {
         res.json(song);
     })
-    .catch((err) => {
-        res.json({message:'Something went wrong', error: err});
-    });
-}
+    .catch(err =>res.status(400).json(err))
+        
+    };
+
 
 module.exports.findAllSongs = (req, res) => {
-    Song.find()
+    Song.find({})
         .then((songs) => {
+            console.log(songs);
             res.json({songs: songs});
         })
         .catch((err) => {
+            console.log("Error:", err);
             res.json({message:'Something went wrong', error: err});
         });
 }
@@ -28,7 +31,7 @@ module.exports.findSongById = (req, res) => {
             res.json({oneSong: oneSong});
         })
         .catch((err) => {
-            res.json({message:'Something went wrong', error: err});
+            res.json( err);
         })
 }
 

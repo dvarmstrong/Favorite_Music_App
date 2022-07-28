@@ -18,8 +18,8 @@ function App() {
                 {/* <SongForm /> */}
                 <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/song/:id" element={<OneSong />} />
-                <Route path="/update/:id" element={<Update />} />
+                <Route path="/song/:id"  element={<OneSong />} />
+                <Route path="/update/:id/" element={<Update />} />
               
               
                 </Routes>
